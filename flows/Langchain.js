@@ -7,13 +7,13 @@ addAction({capture:true},
         try {
             let historial=[]
         console.log("Si funciona nodemon")
-        ///historial.concat(["Usuario:", ctx.body])
+        historial.concat(["Usuario:", ctx.body])
         const respuesta= await otraChain.invoke({
             input: ctx.body,
             chatHistory: historial
         })
         console.log(respuesta)
-        ///historial.concat(["Sistema:", respuesta])
+        historial.concat(["Sistema:", respuesta])
         await state.update({historial: historial})
         await flowDynamic(respuesta)
         } catch (error) {

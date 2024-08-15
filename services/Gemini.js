@@ -2,8 +2,6 @@
 import { ChatVertexAI } from "@langchain/google-vertexai";
 
 
-
-
 export const Gemini= new ChatVertexAI({
     
     apiKey:process.env.GOOGLE_API_KEY,

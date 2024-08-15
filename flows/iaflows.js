@@ -3,7 +3,9 @@ import { EVENTS } from "@builderbot/bot"
 import "dotenv/config"
 
 
-
+//! Esto proviene del "plugin" de LangChain de Builder
+//! Actualmente no funciona 
+//todo Averiguar por qué carajo esto no funciona
 export const BienvenidoGemini= createFlowRouting.
 setKeyword(EVENTS.WELCOME)
 .setIntentions({

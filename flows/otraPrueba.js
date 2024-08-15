@@ -10,12 +10,27 @@ export const welcomeee = createAIFlow
     .setAIModel({ modelName: 'gemini',
         args:{
             modelName:"gemini-1.5-flash",
-        apikey:process.env.GOOGLE_API_KEY,
-    temperature:0.7,} })
+            apikey:process.env.GOOGLE_API_KEY,
+            temperature:0.7,
+        }
+     }
+    )
     .setZodSchema(
         z.object({
-            name: z.string().nullable().describe('The name of the person the user is asking about'),
-            age: z.number().nullable().describe('The age of the person the user is asking about')
+            intencion: z.string().nullable()
+            .describe(`
+Eres un asistente virtual en WhatsApp. Tu tarea es entender la intención del usuario y responder adecuadamente.
+Posibles intenciones:
+1. Saludo
+2. Despedida
+3. Consulta de información
+4. Solicitud de ayuda
+5. Queja
+6. Otra
+7. Indefinido
+`),
+            
+            
         })
     )
     .create({

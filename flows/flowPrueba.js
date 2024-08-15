@@ -5,7 +5,6 @@ import { addKeyword, EVENTS } from "@builderbot/bot";
 
 
 
-
 const chain = new ConversationChain({
     llm: Gemini,
     memory: new BufferMemory(),
@@ -16,8 +15,8 @@ export async function GenerarRespuesta(mensaje) {
     return respuesta.response
 }
 
-export const MainFlow= addKeyword(EVENTS.WELCOME, {capture:true})
-.addAction(async (ctx, {flowDynamic}) => {
+export const MainFlow= addKeyword(EVENTS.WELCOME)
+.addAction({capture:true},async (ctx, {flowDynamic}) => {
     const body = ctx.body;
     const respuesta= await GenerarRespuesta(body);
     await flowDynamic(respuesta)
