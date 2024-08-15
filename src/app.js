@@ -2,7 +2,6 @@
 import { createBot, createProvider, createFlow} from '@builderbot/bot'
 import { MemoryDB as Database } from '@builderbot/bot'
 import { BaileysProvider as Provider } from '@builderbot/provider-baileys'
-///import { BienvenidoGemini } from '../flows/iaflows.js'
 import { welcomeee } from '../flows/otraPrueba.js'
 
 const PORT = process.env.PORT ?? 3008
@@ -10,10 +9,12 @@ const PORT = process.env.PORT ?? 3008
 
 
 const main = async () => {
-    const adapterFlow = createFlow([welcomeee])
-    
+    const adapterFlow = createFlow([welcomeee]) 
+    //! Aca se pueden poner mas Flujos conversacionales, metiando goToFlow() se puede navegar entre ellos
     const adapterProvider = createProvider(Provider)
+    //! Aca se pueden cambiar la api que se esta utilizando, ya sea Baileys, Meta, Twilio, etc...
     const adapterDB = new Database()
+    //! A
 
     const { handleCtx, httpServer } = await createBot({
         flow: adapterFlow,
@@ -21,44 +22,44 @@ const main = async () => {
         database: adapterDB,
     })
 
-    adapterProvider.server.post(
-        '/v1/messages',
-        handleCtx(async (bot, req, res) => {
-            const { number, message, urlMedia } = req.body
-            await bot.sendMessage(number, message, { media: urlMedia ?? null })
-            return res.end('sended')
-        })
-    )
+    // adapterProvider.server.post(
+    //     '/v1/messages',
+    //     handleCtx(async (bot, req, res) => {
+    //         const { number, message, urlMedia } = req.body
+    //         await bot.sendMessage(number, message, { media: urlMedia ?? null })
+    //         return res.end('sended')
+    //     })
+    // )
 
-    adapterProvider.server.post(
-        '/v1/register',
-        handleCtx(async (bot, req, res) => {
-            const { number, name } = req.body
-            await bot.dispatch('REGISTER_FLOW', { from: number, name })
-            return res.end('trigger')
-        })
-    )
+    // adapterProvider.server.post(
+    //     '/v1/register',
+    //     handleCtx(async (bot, req, res) => {
+    //         const { number, name } = req.body
+    //         await bot.dispatch('REGISTER_FLOW', { from: number, name })
+    //         return res.end('trigger')
+    //     })
+    // )
 
-    adapterProvider.server.post(
-        '/v1/samples',
-        handleCtx(async (bot, req, res) => {
-            const { number, name } = req.body
-            await bot.dispatch('SAMPLES', { from: number, name })
-            return res.end('trigger')
-        })
-    )
+    // adapterProvider.server.post(
+    //     '/v1/samples',
+    //     handleCtx(async (bot, req, res) => {
+    //         const { number, name } = req.body
+    //         await bot.dispatch('SAMPLES', { from: number, name })
+    //         return res.end('trigger')
+    //     })
+    // )
 
-    adapterProvider.server.post(
-        '/v1/blacklist',
-        handleCtx(async (bot, req, res) => {
-            const { number, intent } = req.body
-            if (intent === 'remove') bot.blacklist.remove(number)
-            if (intent === 'add') bot.blacklist.add(number)
+    // adapterProvider.server.post(
+    //     '/v1/blacklist',
+    //     handleCtx(async (bot, req, res) => {
+    //         const { number, intent } = req.body
+    //         if (intent === 'remove') bot.blacklist.remove(number)
+    //         if (intent === 'add') bot.blacklist.add(number)
 
-            res.writeHead(200, { 'Content-Type': 'application/json' })
-            return res.end(JSON.stringify({ status: 'ok', number, intent }))
-        })
-    )
+    //         res.writeHead(200, { 'Content-Type': 'application/json' })
+    //         return res.end(JSON.stringify({ status: 'ok', number, intent }))
+    //     })
+    // )
 
     httpServer(+PORT)
 }

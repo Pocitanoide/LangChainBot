@@ -1,44 +1,18 @@
 <p align="center">
-  <a href="https://builderbot.vercel.app/">
-    <picture>
-      <img src="https://builderbot.vercel.app/assets/thumbnail-vector.png" height="80">
-    </picture>
-    <h2 align="center">BuilderBot</h2>
-  </a>
+  Ejemplo de BuilderBot + LangChainJs
 </p>
 
+## Introduccion
 
+Para el bot de whatsapp voy a implementar [BuilderBot](https://www.builderbot.app/en). Es un framework facil y versatil
+Te da la oportunidad de cambiar de API de WhatsApp con solo cambiar una variable y sin tener que aprender como funciona.
 
-<p align="center">
-  <a aria-label="NPM version" href="https://www.npmjs.com/package/@builderbot/bot">
-    <img alt="" src="https://img.shields.io/npm/v/@builderbot/bot?color=%2300c200&label=%40bot-whatsapp">
-  </a>
-  <a aria-label="Join the community on GitHub" href="https://link.codigoencasa.com/DISCORD">
-    <img alt="" src="https://img.shields.io/discord/915193197645402142?logo=discord">
-  </a>
-</p>
+Para el backend de la inteligencia Artificial voy a implementar [LangChain](https://js.langchain.com/v0.2/docs/introduction/). Otro Framework que trabaja con LLM, esta bastante bueno, la documentacion esta bien completa
 
-
-## Getting Started
-
-With this library, you can build automated conversation flows agnostic to the WhatsApp provider, set up automated responses for frequently asked questions, receive and respond to messages automatically, and track interactions with customers. Additionally, you can easily set up triggers to expand functionalities limitlessly.
+## Instalacion
 
 ```
-npm create builderbot@latest
+git clone https://github.com/Pocitanoide/LangChainBot.git
+cd LangchainBot
+npm i
 ```
-
-
-## Documentation
-
-Visit [builderbot](https://builderbot.vercel.app/) to view the full documentation.
-
-
-## Official Course
-
-If you want to discover all the functions and features offered by the library you can take the course.
-[View Course](https://app.codigoencasa.com/courses/builderbot?refCode=LEIFER)
-
-
-## Contact Us
-- [💻 Discord](https://link.codigoencasa.com/DISCORD)
-- [👌 𝕏 (Twitter)](https://twitter.com/leifermendez)

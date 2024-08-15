@@ -19,10 +19,10 @@ const vectorStores= new SupabaseVectorStore(embeddings,
         tableName: "documents",
         queryName: "match_documents",
     }
-)
+) //todo Averiguar mas acerca de bases de datos Vectoriales
 
 export const retriever= vectorStores.asRetriever()
-
+//! Lo que hace el retriever es que, se le pasa una query, y el retriever la consulta a la base de datos vectorial y devuelve un array de con informacion relacionada con a la query
 
 
 

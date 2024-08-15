@@ -16,3 +16,7 @@ export const response = await ChainPregunta.invoke({Pregunta: `Que hora es?`})
 
 //! ChainPregunta es un metodo asincrono, asi 
 //! que debera siempre tener un await detras
+
+
+
+

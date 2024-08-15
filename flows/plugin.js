@@ -2,7 +2,6 @@ import { createFlowRouting } from "@builderbot-plugins/langchain";
 import { EVENTS } from "@builderbot/bot";
 import { configDotenv } from "dotenv";
 
-
 export const welcome = createFlowRouting
 .setKeyword(EVENTS.WELCOME)
 .setIntentions({

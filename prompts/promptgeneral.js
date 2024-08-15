@@ -9,7 +9,7 @@ const prompt = ChatPromptTemplate.fromMessages(
     [
     [
         "system",
-        `You are a helpful assistant who remembers all details the user shares with you.`,
+        `Sos un asistente muy atento que recuerda todo lo que el usuario dice.`,
       ],
       ["placeholder", "{chat_history}"],
       ["human", "{input}"],
