@@ -14,9 +14,9 @@ export const otraChain= RunnableSequence.from([
         chatPrompt: chatPrompt,
         model: Gemini,
     },
-    new StringOutputParser(),
+    new StringOutputParser(), //!Esto convierte el output del modelo a texto
 ]);
-//! Una RunnableSequence es un serie de Chains
+//! Una RunnableSequence es un serie de Chains la cual se le pasa al modelo, aguarda su rta, y su output se le pasa al proximo prompt
 
 
 
